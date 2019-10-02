@@ -1,0 +1,127 @@
+@import "helper/helper.css";
+@import "helper/custom-property.css";
+
+/*Component*/
+@import "component/general/accessibility.css";
+@import "component/general/table.css";
+@import "component/general/modal.css";
+@import "component/general/topic-cloud.css";
+@import "component/general/subpages.css";
+@import "component/general/message-list.css";
+@import "component/general/team-finder.css";
+
+/* Layout */
+@import "component/general/phase-banner.css";
+
+/* Profile and registration */
+@import "component/general/subscribe-flow.css";
+
+/* Navigation */
+@import "component/general/navigation-secondary.css";
+
+@import "component/toggle/toggle.css";
+
+@import "component/layout/layout.css";
+@import "component/content/content.css";
+@import "component/form/form.css";
+@import "component/header/header.css";
+@import "component/navigation/navigation.css";
+
+@import "component/next-previous/next-previous.css";
+@import "component/back-to-top/back-to-top.css";
+@import "component/document-menu/document-menu.css";
+@import "component/document-menu-side-bar/document-menu-side-bar.css";
+
+@import "component/fhrs/fhrs.css";
+@import "component/hero/hero.css";
+@import "component/peek/peek.css";
+@import "component/listing/listing.css";
+@import "component/footer/footer.css";
+@import "component/sidebar/sidebar.css";
+@import "component/promo/promo.css";
+@import "component/pager/pager.css";
+@import "component/infobox/infobox.css";
+@import "component/profile/profile.css";
+@import "component/search/search.css";
+@import "component/topics/topics.css";
+@import "component/toc/toc.css";
+@import "component/temporary-messaging/temporary-messaging.css";
+
+
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-family-content);
+  font-size: var(--font-size-base);
+  letter-spacing: 0.015em;
+  @mixin responsive-declaration font-size, 100%, 112.5%;
+  @mixin responsive-declaration line-height, 1.7, 1.6;
+  scroll-behavior: smooth;
+}
+
+html.is-fixed {
+  position: fixed;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+
+  @media (--breakpoint-sm) {
+    position: static;
+    right: auto;
+    left: auto;
+    top: auto;
+    bottom: auto;
+  }
+}
+
+body {
+  margin: 0;
+
+  @media (--breakpoint-md) {
+    flex-flow: row nowrap;
+    align-items: center;
+  }
+
+  &:after {
+    content: "xs";
+    position: absolute !important;
+    clip: rect(1px, 1px, 1px, 1px);
+    overflow: hidden;
+    height: 1px;
+    width: 1px;
+    word-wrap: normal;
+
+    @media (--breakpoint-sm) {
+      content: "sm";
+    }
+
+    @media (--breakpoint-md) {
+      content: "md";
+    }
+  }
+}
+
+.site {
+  transition: transform var(--transition-enter);
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  min-height: 100vh;
+
+  @media (--breakpoint-sm) {
+    overflow: hidden;
+    transition: none;
+  }
+}
+
+.site.is-moved {
+  transform: translate(20%);
+
+  @media (--breakpoint-sm) {
+    transform: none;
+  }
+}

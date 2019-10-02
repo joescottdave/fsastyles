@@ -1,0 +1,51 @@
+@import "../../helper/helper";
+@import "../../helper/custom-property";
+
+.infobox {
+  @mixin responsive-declaration padding, 1em, 1.5em;
+
+  background-color: var(--color-lighter-gray);
+  border: 1px solid var(--color-light-gray);
+
+  h2 {
+    @mixin reset-font-style;
+    @mixin responsive-declaration margin, -1em, -1.5em;
+    @mixin responsive-declaration margin-bottom, 1.5em, 2em;
+    @mixin responsive-declaration padding, 1em, 1.5em;
+    @mixin responsive-declaration padding-bottom, 0.75em, 1.25em;
+
+    background-color: var(--dark-secondary-color);
+    color: var(--color-white);
+    font-weight: 600;
+  }
+
+  ul {
+    padding: 0;
+  }
+
+  li {
+    @mixin responsive-declaration padding-top, 0.7em, 0.2em;
+    @mixin responsive-declaration padding-bottom, 0.7em, 0.2em;
+
+    position: relative;
+    list-style: none;
+    padding-left: calc(1em + 1em);
+    padding-left: 38px;
+    margin-bottom: 0;
+
+    &:after {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      background-image: var(--icon-checkmark-primary);
+      background-size: 70% 70%;
+      background-position: 50%;
+      background-repeat: no-repeat;
+      transform: translateY(-50%);
+    }
+  }
+}

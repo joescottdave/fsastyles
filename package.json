@@ -1,0 +1,9 @@
+{
+  "name": "fsastyles",
+  "version": "0.0.3",
+  "description": "npm package for using FSA styles",
+  "author": {
+    "name": "FSA Digital",
+    "email": "FSADigital@food.gov.uk"
+  }
+}
