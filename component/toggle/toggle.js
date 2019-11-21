@@ -301,4 +301,4 @@ function toggle () {
   initialize(elems)
 }
 
-module.exports = toggle
+export default toggle

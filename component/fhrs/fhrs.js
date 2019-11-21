@@ -38,4 +38,4 @@ function fhrs () {
   })
 }
 
-module.exports = fhrs
+export default fhrs

@@ -415,4 +415,4 @@ function navigation () {
   navigationMode.updateMode()
 }
 
-module.exports = navigation
+export default navigation

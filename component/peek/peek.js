@@ -56,4 +56,4 @@ function peek () {
   window.addEventListener('scroll', onScroll, false)
 }
 
-module.exports = peek
+export default peek

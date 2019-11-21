@@ -15,4 +15,4 @@ function autoOpenFirstSearchFilter () {
   state.on({ element: firstFilterContent, type: 'content' }, 'is-open')
 }
 
-module.exports = autoOpenFirstSearchFilter
+export default autoOpenFirstSearchFilter

@@ -52,4 +52,4 @@ function scrollToMultiStepForm () {
   }
 }
 
-module.exports = { changeAriaRoleOnToggle, autoOpenFormError, scrollToMultiStepForm }
+export { changeAriaRoleOnToggle, autoOpenFormError, scrollToMultiStepForm }

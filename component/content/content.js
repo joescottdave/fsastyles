@@ -43,4 +43,4 @@ function addHeading () {
 
 }
 
-module.exports = addHeading;
+export default addHeading
