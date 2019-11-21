@@ -40,4 +40,4 @@ function toc () {
   }
 }
 
-module.exports = toc
+export default toc

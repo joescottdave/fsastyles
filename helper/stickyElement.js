@@ -100,4 +100,4 @@ function stickyElement (containers, stickyElements) {
   window.addEventListener('load', toggleStickyElement)
 }
 
-module.exports = stickyElement
+export default stickyElement
