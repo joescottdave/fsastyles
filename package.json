@@ -5,5 +5,13 @@
   "author": {
     "name": "FSA Digital",
     "email": "FSADigital@food.gov.uk"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "custom-event-polyfill": "^1.0.7",
+    "mutationobserver-shim": "^0.3.3",
+    "svg4everybody": "^2.1.9",
+    "tabbable": "^4.0.0",
+    "wicg-inert": "^3.0.0"
   }
 }
