@@ -62,17 +62,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Add the toggle to the document menu.
   toggleSidebarDocumentMenu();
-})
 
-// Sticky element
-const container = [...document.querySelectorAll('.js-sticky-container')]
-const stickyElem = [...document.querySelectorAll('.js-sticky-element')]
-if (container != null || stickyElem != null) {
-  stickyElement(container, stickyElem)
-}
+  // Sticky element
+  const container = [...document.querySelectorAll('.js-sticky-container')]
+  const stickyElem = [...document.querySelectorAll('.js-sticky-element')]
+  if (container != null || stickyElem != null) {
+    stickyElement(container, stickyElem)
+  }
 
-// Add class if touch device
-document.addEventListener('touchstart', function addtouchclass (e) {
-  document.documentElement.classList.add('is-touch')
-  document.removeEventListener('touchstart', addtouchclass, false)
-}, false)
+  // Add class if touch device
+  document.addEventListener('touchstart', function addtouchclass (e) {
+    document.documentElement.classList.add('is-touch')
+    document.removeEventListener('touchstart', addtouchclass, false)
+  }, false)
+})  
