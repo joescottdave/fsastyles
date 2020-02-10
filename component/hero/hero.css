@@ -133,6 +133,11 @@
       display: none;
     }
   }
+
+  .theme--data & {
+    max-width: 100%;
+    min-height: 18em;
+  }
 }
 
 /* Hero title */
@@ -194,6 +199,7 @@
     display: block;
     transform: translateX(-50%);
 
+    .theme--data &,
     .theme--search &,
     .theme--term & {
       display: none;
