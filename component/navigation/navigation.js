@@ -145,7 +145,6 @@ function navigation () {
   const keyboard = navigationKeyboard(menuItemActionArray, settings)
   keyboard.init()
 
-
   function initializeListeners () {
     // Add click listener for menu button
     menuButtonOpenElement.addEventListener('click', function (e) {
@@ -157,6 +156,14 @@ function navigation () {
     menuButtonCloseElement.addEventListener('click', function (e) {
       mobileNavigation.off()
       menuButtonOpenElement.focus()
+    })
+
+    // Add click listener for menu button
+    navigationElementArray[0].addEventListener('mobileNavClose', function (e) {
+      if (navigationMode.getMode()) {
+        mobileNavigation.off()
+        menuButtonOpenElement.focus()
+      }
     })
 
     // Item togglers for screen readers.
@@ -172,8 +179,7 @@ function navigation () {
 
         if ([...linkElement.classList].indexOf('is-open') !== -1) {
           toggleEvent = new CustomEvent('navigation:close')
-        }
-        else {
+        } else {
           toggleEvent = new CustomEvent('navigation:open')
         }
 
@@ -207,7 +213,7 @@ function navigation () {
           // Close all first level items in full mode before opening.
           firstLevelLinkArray.forEach((element) => {
             var toggleEvent = new CustomEvent('navigation:close')
-            element.dispatchEvent(toggleEvent);
+            element.dispatchEvent(toggleEvent)
           })
         }
 
@@ -225,14 +231,13 @@ function navigation () {
           // Close inner items to re-inert them.
           [...content.querySelectorAll('.navigation__link')].forEach((element) => {
             var toggleEvent = new CustomEvent('navigation:close')
-            element.dispatchEvent(toggleEvent);
+            element.dispatchEvent(toggleEvent)
           })
 
           // Focus on first child item and add state class to root element.
           content.children[0].children[0].focus()
           navigationElementArray[0].classList.add('has-open-submenu')
-        }
-        else {
+        } else {
           // Make inner buttons inert as they are not needed in full mode.
           [...content.querySelectorAll('button.navigation__link')].forEach((element) => {
             element.inert = true
@@ -247,15 +252,14 @@ function navigation () {
 
           var openEvent = new CustomEvent('navigation:open')
           element.dispatchEvent(openEvent)
-        }
-        else {
+        } else {
           // If first level item isn't open when clicked, prevent default
           // and open instead. This is a common hover workaround for touch.
           if ([...element.classList].indexOf('navigation__link--level-1') !== -1 && [...content.classList].indexOf('is-open') === -1) {
             e.preventDefault()
 
             var toggleEvent = new CustomEvent('navigation:open')
-            element.dispatchEvent(toggleEvent);
+            element.dispatchEvent(toggleEvent)
           }
         }
       })
@@ -268,7 +272,7 @@ function navigation () {
           if ([...element.classList].indexOf('navigation__link--level-1') !== -1) {
             firstLevelLinkArray.forEach((element) => {
               var toggleEvent = new CustomEvent('navigation:close')
-              element.dispatchEvent(toggleEvent);
+              element.dispatchEvent(toggleEvent)
             })
 
             navigationElementArray[0].classList.remove('has-open-submenu')
@@ -278,7 +282,7 @@ function navigation () {
           if ([...element.classList].indexOf('navigation__link--level-2') !== -1) {
             secondLevelLinkArray.forEach((element) => {
               var toggleEvent = new CustomEvent('navigation:close')
-              element.dispatchEvent(toggleEvent);
+              element.dispatchEvent(toggleEvent)
             })
           }
         }
@@ -296,22 +300,24 @@ function navigation () {
       }, true)
     })
 
+    const closeTest = function (e, element) {
+      if (!navigationMode.getMode()) {
+        if (!element.contains(e.relatedTarget) || [...e.relatedTarget.classList].indexOf('navigation__link--level-1') !== -1) {
+          firstLevelLinkArray.forEach((element) => {
+            if (e.relatedTarget != element) {
+              var toggleEvent = new CustomEvent('navigation:close')
+              element.dispatchEvent(toggleEvent)
+            }
+          })
+        }
+      }
+    }
     // Close nav element when mouse leaves navigation element
     // or enters another first level element (relatedTarget).
     // This includes items without children!
     navigationElementArray.forEach((element) => {
-      element.addEventListener('mouseout', function (e) {
-        if (!navigationMode.getMode()) {
-          if (!element.contains(e.relatedTarget) || [...e.relatedTarget.classList].indexOf('navigation__link--level-1') !== -1) {
-            firstLevelLinkArray.forEach((element) => {
-              if (e.relatedTarget != element) {
-                var toggleEvent = new CustomEvent('navigation:close')
-                element.dispatchEvent(toggleEvent)
-              }
-            })
-          }
-        }
-      }, true)
+      element.addEventListener('mouseout', function (e) { closeTest(e, element) }, true)
+      element.addEventListener('focusout', function (e) { closeTest(e, element) }, true)
     })
 
     // Back link in mobile mode.
@@ -338,8 +344,7 @@ function navigation () {
           if (e.relatedTarget !== null && keyboard.queryParents(e.relatedTarget, settings.mobileDrawerSelector) === null) {
             mobileNavigation.off()
           }
-        }
-        else {
+        } else {
           // Close first level items when focusing outside them in full mode.
           if (e.relatedTarget === null || (!e.relatedTarget.classList.contains('js-nav-item-with-child') && e.relatedTarget.classList.contains('navigation__link--level-1')) || keyboard.queryParents(e.relatedTarget, settings.menuSelector) === null) {
             firstLevelLinkArray.forEach((element) => {

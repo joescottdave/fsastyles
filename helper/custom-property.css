@@ -28,6 +28,7 @@ Plugin documentation:
   --color-dark-gray: #2c3a40;
   --color-gray: #70787A;
   --color-light-gray: #dee2e5;
+  --color-lightish-gray: #e8ebed;
   --color-lighter-gray: #f0f3f5;
   --color-darker-teal: #005e59;
   --color-dark-teal: #007c75;
@@ -45,6 +46,7 @@ Plugin documentation:
   --color-light-yellow: #ffdfa2;
   --color-green: #6cb33d;
   --color-dark-blue: #18262c;
+  --colour-medium-blue: #165c7d;
   --color-blue: #007fb2;
   --color-lighter-blue: #fafcfd;
 
@@ -56,6 +58,7 @@ Plugin documentation:
   --dark-secondary-color: var(--color-dark-purple);
   --secondary-color: var(--color-purple);
   --light-secondary-color: var(--color-light-purple);
+  --new-darker-primary-color: var(--colour-medium-blue);
 
   /* Typography */
   --font-size-base: 112.5%;

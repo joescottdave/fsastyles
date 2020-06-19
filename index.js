@@ -10,6 +10,7 @@ import './helper/polyfill/pointerEvents'
 import svg4everybody from 'svg4everybody'
 import responsiveTables from './helper/responsiveTables'
 import stickyElement from './helper/stickyElement'
+// import cssCustomPropertySupport from './helper/cssCustomPropertySupport'
 
 import navigation from './component/navigation/navigation'
 import addHeading from './component/content/content'
@@ -19,7 +20,9 @@ import fhrs from './component/fhrs/fhrs'
 import toc from './component/toc/toc'
 import { changeAriaRoleOnToggle, autoOpenFormError, scrollToMultiStepForm } from './component/form/form'
 import autoOpenFirstSearchFilter from './component/search/search'
-import toggleSidebarDocumentMenu from './component/document-menu-side-bar/document-menu-side-bar';
+import toggleSidebarDocumentMenu from './component/document-menu-side-bar/document-menu-side-bar'
+import hideSearchFiltersEmptyResults from './component/search/search'
+import webFormError from './component/webform-error/webform-error'
 
 // Require every image asset inside of img folder
 require.context('./img/', true, /\.(gif|png|svg|jpe?g)$/)
@@ -57,11 +60,16 @@ document.addEventListener('DOMContentLoaded', () => {
   autoOpenFormError()
   scrollToMultiStepForm()
 
+  webFormError()
+
   // Auto-open first search filter (on desktop only)
   autoOpenFirstSearchFilter()
 
+  // Hide search facets for empty result sets.
+  hideSearchFiltersEmptyResults()
+
   // Add the toggle to the document menu.
-  toggleSidebarDocumentMenu();
+  toggleSidebarDocumentMenu()
 })
 
 // Sticky element
@@ -76,3 +84,8 @@ document.addEventListener('touchstart', function addtouchclass (e) {
   document.documentElement.classList.add('is-touch')
   document.removeEventListener('touchstart', addtouchclass, false)
 }, false)
+
+// // Add class if css custom properties are supported
+// if (cssCustomPropertySupport()) {
+//   document.documentElement.classList.add('is-modern')
+// }

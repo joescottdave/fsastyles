@@ -1,7 +1,6 @@
 import state from '../../helper/toggleHelpers'
 
 function changeAriaRoleOnToggle () {
-
   // All the toggle buttons inside toggle legends
   const toggleButtons = [...document.querySelectorAll('.toggle-fieldset__button .fieldset-legend')]
 

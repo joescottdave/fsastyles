@@ -693,6 +693,10 @@ blockquote {
     font-weight: 500;
   }
 
+  div[role="heading"] {
+    font-family: var(--font-family-heading);
+  }
+
   &:after {
     content: '';
     position: absolute;
@@ -750,7 +754,6 @@ blockquote {
 
 /* Content toolbar */
 .content-toolbar {
-  @mixin responsive-declaration margin-bottom, 1.5em, 3em;
 
   position: relative;
   display: flex;
@@ -1539,4 +1542,10 @@ but they are inserted in DOM outside container and with inline styles.
   background: var(--color-white);
   padding: 1rem;
   z-index: 9999;
+}
+
+.consultation-standard-text {
+  a {
+    text-decoration: underline;
+  }
 }
