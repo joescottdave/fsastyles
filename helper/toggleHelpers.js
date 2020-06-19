@@ -13,8 +13,7 @@ const state = {
           [...options.element.querySelectorAll('a, button')].forEach((tabbableChild) => {
             tabbableChild.inert = false
           })
-        }
-        else {
+        } else {
           options.element.inert = false
         }
         break
@@ -37,8 +36,7 @@ const state = {
           [...options.element.querySelectorAll('a, button')].forEach((tabbableChild) => {
             tabbableChild.inert = true
           })
-        }
-        else {
+        } else {
           options.element.inert = true
         }
         break

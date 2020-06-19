@@ -129,16 +129,14 @@ function navigationKeyboard (actionItems, settings) {
       prev: function (item, selector, recursive) {
         if (item && item.previousElementSibling && item.previousElementSibling.matches(selector)) {
           return item.previousElementSibling
-        }
-        else if (recursive && item && item.previousElementSibling) {
+        } else if (recursive && item && item.previousElementSibling) {
           return traversing.siblings.prev(item.previousElementSibling, selector, recursive)
         }
       },
       next: function (item, selector, recursive) {
         if (item && item.nextElementSibling && item.nextElementSibling.matches(selector)) {
           return item.nextElementSibling
-        }
-        else if (recursive && item && item.nextElementSibling) {
+        } else if (recursive && item && item.nextElementSibling) {
           return traversing.siblings.next(item.nextElementSibling, selector, recursive)
         }
       }
@@ -147,10 +145,9 @@ function navigationKeyboard (actionItems, settings) {
 
   var _active = false
   const isActive = (setActive) => {
-    if (typeof setActive == 'undefined') {
+    if (typeof setActive === 'undefined') {
       return _active
-    }
-    else {
+    } else {
       _active = setActive
     }
   }
@@ -163,7 +160,7 @@ function navigationKeyboard (actionItems, settings) {
       const keyDownHandler = (event) => {
         // No arrow navigation in mobile mode.
         if (!isActive()) {
-          return;
+          return
         }
 
         const item = event.target
@@ -290,8 +287,8 @@ function navigationKeyboard (actionItems, settings) {
               // Open megamenu first.
               if (itemLevel == 1) {
                 var linkElement = listItem.querySelector(settings.menuItemActionSelector)
-                var openEvent = new CustomEvent('navigation:open');
-                linkElement.dispatchEvent(openEvent);
+                var openEvent = new CustomEvent('navigation:open')
+                linkElement.dispatchEvent(openEvent)
               }
 
               traversing.focus(innerItem)
@@ -325,17 +322,28 @@ function navigationKeyboard (actionItems, settings) {
 
               if ([...linkElement.classList].indexOf('is-open') !== -1) {
                 toggleEvent = new CustomEvent('navigation:close')
-              }
-              else {
+              } else {
                 toggleEvent = new CustomEvent('navigation:open')
               }
 
               linkElement.dispatchEvent(toggleEvent)
               event.preventDefault()
             }
-            break;
+            break
 
-            break;
+          case keyboard.ESCAPE:
+            listItem = queryParents(item, settings.listItemSelector)
+            var linkElement = listItem.querySelectorAll(settings.menuItemActionSelector)
+            toggleEvent = new CustomEvent('navigation:close')
+
+            const top = traversing.top.topItem(listItem)
+            top.querySelector('a').dispatchEvent(toggleEvent)
+            console.log(top)
+            console.log(top.querySelector('a'))
+            // console.log(linkElement);
+            // console.log(listItem);
+            // console.log(settings);
+            break
         };
       }
 

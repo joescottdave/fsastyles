@@ -214,8 +214,11 @@
     }
 
     .field__title {
-      display: block;
       margin-bottom: .5em;
+    }
+
+    h3 a {
+      display: block;
     }
 
     .field__field_alert_description,
