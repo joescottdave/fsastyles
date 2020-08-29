@@ -1,6 +1,6 @@
 import debounce from '../../helper/debounce'
 
-function fhrs () {
+export function fhrs () {
   // All the toggle buttons
   const mainSearchElementArray = [...document.querySelectorAll('.js-main-search-input')]
 
@@ -38,4 +38,4 @@ function fhrs () {
   })
 }
 
-module.exports = fhrs
+// module.exports = fhrs

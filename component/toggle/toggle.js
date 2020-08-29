@@ -7,7 +7,7 @@ import debounce from '../../helper/debounce'
 import closestParent from '../../helper/closestParent'
 import state from '../../helper/toggleHelpers'
 
-function toggle () {
+export function toggle () {
   const KEYCODE = {
     ENTER: 13,
     ESC: 27,
@@ -301,4 +301,4 @@ function toggle () {
   initialize(elems)
 }
 
-module.exports = toggle
+// module.exports = toggle

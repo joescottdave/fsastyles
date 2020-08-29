@@ -1,6 +1,6 @@
 import doScrolling from '../../helper/scrollToElement'
 
-function toc () {
+export function toc () {
   // Set 'tabindex' attribute to all scroll targets so that currentHeading.focus() works properly
   let body = document.querySelector('.field__body')
 
@@ -40,4 +40,4 @@ function toc () {
   }
 }
 
-module.exports = toc
+// module.exports = toc

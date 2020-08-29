@@ -6,7 +6,7 @@ import closestParent from '../../helper/closestParent'
 import state from '../../helper/toggleHelpers'
 import navigationKeyboard from './navigation-keyboard'
 
-function navigation () {
+export function navigation () {
   const settings = {
     hoverClass: 'is-open',
     mobileDrawerSelector: '.navigation-wrapper__content',
@@ -420,4 +420,4 @@ function navigation () {
   navigationMode.updateMode()
 }
 
-module.exports = navigation
+// module.exports = navigation

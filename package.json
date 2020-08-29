@@ -1,11 +1,8 @@
 {
   "name": "fsastyles",
-  "version": "0.0.4",
+  "version": "0.0.4.1-epimorphics",
   "description": "npm package for using FSA styles",
-   "author": {
-    "name": "FSA Digital",
-    "email": "FSADigital@food.gov.uk"
-  },
+  "author": "",
   "main": " index.js",
   "browserslist": [
     "> 1%",
@@ -22,12 +19,11 @@
   },
   "scripts": {
     "test": "standard",
-	"fix": "standard --fix",
+    "fix": "standard --fix",
     "watch": "webpack --mode development --watch --devtool source-map",
     "build": "webpack --mode production"
   },
   "keywords": [],
-  "author": "",
   "license": "ISC",
   "dependencies": {
     "babel-core": "^6.24.1",

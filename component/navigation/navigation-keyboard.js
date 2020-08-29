@@ -1,4 +1,4 @@
-function navigationKeyboard (actionItems, settings) {
+export default function navigationKeyboard (actionItems, settings) {
   const keyboard = {
     BACKSPACE: 8,
     COMMA: 188,
@@ -362,4 +362,4 @@ function navigationKeyboard (actionItems, settings) {
   }
 }
 
-module.exports = navigationKeyboard
+// module.exports = navigationKeyboard

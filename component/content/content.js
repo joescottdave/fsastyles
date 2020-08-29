@@ -1,7 +1,7 @@
 /* global Drupal */
 import guid from '../../helper/guid'
 
-function addHeading () {
+export function addHeading () {
   const elementArray = [...document.querySelectorAll('.js-regional-variation')]
   const hasDrupal = typeof Drupal !== 'undefined'
 
@@ -42,4 +42,4 @@ function addHeading () {
   })
 }
 
-module.exports = addHeading
+// module.exports = addHeading

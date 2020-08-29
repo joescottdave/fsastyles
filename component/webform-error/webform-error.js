@@ -1,4 +1,4 @@
-function webFormError () {
+export function webFormError () {
   const errorBox = document.querySelector('.error-summary')
   if (errorBox) {
     errorBox.focus()
@@ -6,4 +6,4 @@ function webFormError () {
   }
 }
 
-module.exports = webFormError
+// module.exports = webFormError

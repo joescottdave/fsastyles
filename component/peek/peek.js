@@ -2,7 +2,7 @@
 import InViewElement from '../../helper/inView'
 // import debounce from '../../helper/debounce'
 
-function peek () {
+export function peek () {
   const peekElements = [...document.querySelectorAll('.js-peek')]
 
   let peekElementInstanceArray = []
@@ -56,4 +56,4 @@ function peek () {
   window.addEventListener('scroll', onScroll, false)
 }
 
-module.exports = peek
+// module.exports = peek

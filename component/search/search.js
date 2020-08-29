@@ -1,7 +1,7 @@
 import checkMediaQuery from '../../helper/checkMediaQuery'
 import state from '../../helper/toggleHelpers'
 
-function autoOpenFirstSearchFilter () {
+export function autoOpenFirstSearchFilter () {
   // Check if desktop size (ie. not 'xs' or 's')
   if (checkMediaQuery().includes('s')) return
 
@@ -15,7 +15,7 @@ function autoOpenFirstSearchFilter () {
   state.on({ element: firstFilterContent, type: 'content' }, 'is-open')
 }
 
-function hideSearchFiltersEmptyResults () {
+export function hideSearchFiltersEmptyResults () {
   // Check if search page.
   const searchPage = document.querySelector('.view-news-alerts-search')
   const globalSearchPage = document.querySelector('.search-listing')
@@ -38,5 +38,5 @@ function hideSearchFiltersEmptyResults () {
   mainContent.classList.remove('layout--with-sidebar')
 }
 
-module.exports = autoOpenFirstSearchFilter
-module.exports = hideSearchFiltersEmptyResults
+// module.exports = autoOpenFirstSearchFilter
+// module.exports = hideSearchFiltersEmptyResults

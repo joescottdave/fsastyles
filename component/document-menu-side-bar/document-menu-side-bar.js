@@ -1,5 +1,5 @@
 
-function toggleSidebarDocumentMenu () {
+export function toggleSidebarDocumentMenu () {
   let sidebarDocumentMenus = [...document.querySelectorAll('div.document-menu-side-menu')]
 
   let toggleCSSClass = (element, className) => {
@@ -26,4 +26,4 @@ function toggleSidebarDocumentMenu () {
   })
 }
 
-module.exports = toggleSidebarDocumentMenu
+// module.exports = toggleSidebarDocumentMenu

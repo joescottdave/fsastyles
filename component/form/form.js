@@ -1,6 +1,6 @@
 import state from '../../helper/toggleHelpers'
 
-function changeAriaRoleOnToggle () {
+export function changeAriaRoleOnToggle () {
   // All the toggle buttons inside toggle legends
   const toggleButtons = [...document.querySelectorAll('.toggle-fieldset__button .fieldset-legend')]
 
@@ -16,7 +16,7 @@ function changeAriaRoleOnToggle () {
   })
 }
 
-function autoOpenFormError () {
+export function autoOpenFormError () {
   // If there's an error, open the content where the error is
   const profileManager = document.querySelector('#profile-manager')
   if (!profileManager) return
@@ -31,7 +31,7 @@ function autoOpenFormError () {
   state.on({ element: toggleButton, type: 'button' }, 'is-open')
 }
 
-function scrollToMultiStepForm () {
+export function scrollToMultiStepForm () {
   // If user is completing a form with multiple steps, autoscroll to each step
 
   // Check if user is halfway through completing a multi-step form
@@ -51,4 +51,4 @@ function scrollToMultiStepForm () {
   }
 }
 
-module.exports = { changeAriaRoleOnToggle, autoOpenFormError, scrollToMultiStepForm }
+// module.exports = { changeAriaRoleOnToggle, autoOpenFormError, scrollToMultiStepForm }
