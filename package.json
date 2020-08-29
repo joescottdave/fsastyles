@@ -1,6 +1,6 @@
 {
   "name": "fsastyles",
-  "version": "0.0.4.1-epimorphics",
+  "version": "0.0.5+epimorphics",
   "description": "npm package for using FSA styles",
   "author": "",
   "main": " index.js",
