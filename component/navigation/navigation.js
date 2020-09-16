@@ -43,10 +43,10 @@ export function navigation () {
   const root = document.documentElement
 
   // Tabbable elements inside of navigation
-  const tabbableNavigationItems = tabbable(navigationElementArray[0])
+  const tabbableNavigationItems = navigationElementArray.size ? tabbable(navigationElementArray[0]) : []
 
   // Navigation items that have an action.
-  const menuItemActionArray = [...navigationElementArray[0].querySelectorAll(settings.menuItemActionSelector)]
+  const menuItemActionArray = navigationElementArray.size ? [...navigationElementArray[0].querySelectorAll(settings.menuItemActionSelector)] : []
 
   // Mobile navigation object with on/off state functions.
   // Toggles whether mobile navigation wrapper is visible and active or not.
@@ -102,11 +102,12 @@ export function navigation () {
   }
 
   // Check everything found
-  if (menuButtonOpenElement.length <= 0 ||
+  if (!menuButtonOpenElement ||
+    menuButtonOpenElement.length <= 0 ||
     menuButtonCloseElement.length <= 0 ||
     navigationElementArray.length <= 0 ||
     siteElementArray.length <= 0) {
-    return console.warn('Navigation elements not found')
+    return console.log('JS navigation elements not found')
   }
 
   let secondLevelMenuArray = []
@@ -159,12 +160,14 @@ export function navigation () {
     })
 
     // Add click listener for menu button
-    navigationElementArray[0].addEventListener('mobileNavClose', function (e) {
-      if (navigationMode.getMode()) {
-        mobileNavigation.off()
-        menuButtonOpenElement.focus()
-      }
-    })
+    if (navigationElementArray.length) {
+      navigationElementArray[0].addEventListener('mobileNavClose', function (e) {
+        if (navigationMode.getMode()) {
+          mobileNavigation.off()
+          menuButtonOpenElement.focus()
+        }
+      })
+    }
 
     // Item togglers for screen readers.
     navigationItemTogglersArray.forEach((element) => {
@@ -361,7 +364,9 @@ export function navigation () {
   function initializeNav () {
     siteElementArray[0].classList.remove('is-moved')
     root.classList.remove('is-fixed')
-    navigationElementArray[0].classList.remove('has-open-submenu')
+    if (navigationElementArray.length) {
+      navigationElementArray[0].classList.remove('has-open-submenu')
+    }
 
     // Set initial states
     if (navigationMode.getMode()) {
@@ -373,7 +378,9 @@ export function navigation () {
       state.remove({element: navigationElementArray[0], type: 'content'}, 'is-open')
 
       // First open all levels recursively to remove all inert state.
-      state.on({element: navigationElementArray[0].querySelector('.navigation__menu--level-1'), type: 'content'}, 'is-open', true)
+      if (navigationElementArray.length) {
+        state.on({element: navigationElementArray[0].querySelector('.navigation__menu--level-1'), type: 'content'}, 'is-open', true)
+      }
 
       navigationParentItemsArray.forEach((element) => {
         // Close all levels.
