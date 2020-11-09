@@ -1,16 +1,16 @@
 const path = require('path')
 
 // Plugins
-const ExtractCSSPlugin = require('extract-text-webpack-plugin')
 const SpritePlugin = require('svg-sprite-loader/plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const FileManagerPlugin = require('filemanager-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 var config = {
   // context: path.resolve(__dirname, 'src'),
   entry: {
-    app: './index.js'
+    app: './index.js',
   },
   module: {
     rules: [
@@ -20,22 +20,21 @@ var config = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['env']
-          }
-        }
+            presets: ['env'],
+          },
+        },
       },
       {
         test: /\.css$/,
         exclude: /(component|styleguide|helper)/,
-        use: ExtractCSSPlugin.extract({
-          use: [
-            {
-              loader: 'css-loader',
-              options: { importLoaders: 1 }
-            },
-            'postcss-loader'
-          ]
-        })
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: { importLoaders: 1 },
+          },
+          'postcss-loader',
+        ],
       },
       /* {
         test: /\.css$/,
@@ -48,44 +47,41 @@ var config = {
       }, */
       {
         test: /\.(gif|png|jpe?g)$/i,
-        use: [
-          'file-loader?name=[path][name].[ext]',
-          'image-webpack-loader'
-        ]
+        use: ['file-loader?name=[path][name].[ext]', 'image-webpack-loader'],
       },
       {
         test: /\.svg$/,
         use: [
           {
             loader: 'svg-sprite-loader',
-            options: { extract: true }
+            options: { extract: true },
           },
-          'svgo-loader'
-        ]
+          'svgo-loader',
+        ],
       },
       {
         test: /\.html$/,
         use: {
-          loader: 'html-loader'
-        }
+          loader: 'html-loader',
+        },
       },
       {
         test: /\.md$/,
         use: [
           {
-            loader: 'html-loader'
+            loader: 'html-loader',
           },
           {
-            loader: 'markdown-loader'
-          }
-        ]
-      }
-    ]
+            loader: 'markdown-loader',
+          },
+        ],
+      },
+    ],
   },
   output: {
     filename: '[name].js',
-    path: path.resolve(__dirname, 'dist')
-  }
+    path: path.resolve(__dirname, 'dist'),
+  },
 }
 
 module.exports = (env, argv) => {
@@ -95,17 +91,16 @@ module.exports = (env, argv) => {
     ...config.plugins,
 
     // Extract CSS to its own file
-    new ExtractCSSPlugin({
-      filename: '[name].css'
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
     }),
 
     new OptimizeCssAssetsPlugin({
-      cssProcessorOptions: { discardComments: { removeAll: true } }
+      cssProcessorOptions: { discardComments: { removeAll: true } },
     }),
 
     // Create SVG sprite
-    new SpritePlugin()
-
+    new SpritePlugin(),
   ]
 
   return config
