@@ -1,4 +1,4 @@
-import 'babel-polyfill'
+import '@babel/polyfill'
 import 'mutationobserver-shim'
 import 'wicg-inert'
 import 'custom-event-polyfill'
