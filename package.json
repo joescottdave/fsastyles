@@ -55,7 +55,7 @@
     "template-string-loader": "0.0.4",
     "to-camel-case": "^1.0.0",
     "webpack": "^4.20.2",
-    "webpack-cli": "^3.1.1",
+    "webpack-cli": "^4.2.0",
     "wicg-inert": "^3.1.0"
   },
   "devDependencies": {
