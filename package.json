@@ -43,7 +43,7 @@
     "postcss-cssnext": "^3.0.2",
     "postcss-discard-comments": "^2.0.4",
     "postcss-import": "^11.0.0",
-    "postcss-loader": "^2.0.6",
+    "postcss-loader": "^4.0.4",
     "postcss-mixins": "^6.0.0",
     "postcss-nested": "^3.0.0",
     "postcss-normalize": "^4.0.0",
