@@ -33,7 +33,7 @@
     "clipboard": "^2.0.1",
     "css-loader": "^0.28.4",
     "custom-event-polyfill": "^0.3.0",
-    "file-loader": "^1.1.6",
+    "file-loader": "^6.2.0",
     "html-loader": "^1.3.2",
     "image-webpack-loader": "^7.0.1",
     "lodash": "^4.17.4",
