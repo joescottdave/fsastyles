@@ -42,7 +42,7 @@
     "postcss": "^8.1.6",
     "postcss-cssnext": "^3.0.2",
     "postcss-discard-comments": "^4.0.2",
-    "postcss-import": "^11.0.0",
+    "postcss-import": "^13.0.0",
     "postcss-loader": "^4.0.4",
     "postcss-mixins": "^6.0.0",
     "postcss-nested": "^3.0.0",
