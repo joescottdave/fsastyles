@@ -29,7 +29,7 @@ var config = {
           MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
-            options: { importLoaders: 1 },
+            options: { importLoaders: 1, url: false },
           },
           'postcss-loader',
         ],
