@@ -41,7 +41,7 @@
     "mutationobserver-shim": "^0.3.2",
     "postcss": "^8.1.6",
     "postcss-cssnext": "^3.0.2",
-    "postcss-discard-comments": "^2.0.4",
+    "postcss-discard-comments": "^4.0.2",
     "postcss-import": "^11.0.0",
     "postcss-loader": "^4.0.4",
     "postcss-mixins": "^6.0.0",
