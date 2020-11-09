@@ -39,7 +39,7 @@
     "lodash": "^4.17.4",
     "markdown-loader": "^6.0.0",
     "mutationobserver-shim": "^0.3.2",
-    "postcss": "^6.0.1",
+    "postcss": "^8.1.6",
     "postcss-cssnext": "^3.0.2",
     "postcss-discard-comments": "^2.0.4",
     "postcss-import": "^11.0.0",
