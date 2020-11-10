@@ -1,7 +1,7 @@
 const path = require('path')
 
 // Plugins
-const SpritePlugin = require('svg-sprite-loader/plugin')
+const SvgStorePlugin = require('external-svg-sprite-loader')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
@@ -15,12 +15,14 @@ var config = {
       {
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env'],
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env'],
+            },
           },
-        },
+        ],
       },
       {
         test: /\.css$/,
@@ -42,17 +44,18 @@ var config = {
         test: /\.svg$/,
         use: [
           {
-            loader: 'svg-sprite-loader',
-            options: { extract: true },
+            loader: SvgStorePlugin.loader,
+            options: {
+              name: 'sprite.svg',
+              iconName: '[name]',
+            },
           },
           'svgo-loader',
         ],
       },
       {
         test: /\.html$/,
-        use: {
-          loader: 'html-loader',
-        },
+        use: ['html-loader'],
       },
       {
         test: /\.md$/,
@@ -89,7 +92,15 @@ module.exports = (env, argv) => {
     }),
 
     // Create SVG sprite
-    new SpritePlugin(),
+    new SvgStorePlugin({
+      sprite: {
+        startX: 10,
+        startY: 10,
+        deltaX: 20,
+        deltaY: 20,
+        iconHeight: 20,
+      },
+    }),
   ]
 
   return config
