@@ -1,6 +1,6 @@
 function hasClass (elem, cls) {
-  var str = ' ' + elem.className + ' '
-  var testCls = ' ' + cls + ' '
+  const str = ' ' + elem.className + ' '
+  const testCls = ' ' + cls + ' '
   return (str.indexOf(testCls) !== -1)
 }
 

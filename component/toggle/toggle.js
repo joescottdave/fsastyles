@@ -7,15 +7,15 @@ import debounce from '../../helper/debounce'
 import closestParent from '../../helper/closestParent'
 import state from '../../helper/toggleHelpers'
 
-export function toggle() {
+export function toggle () {
   const KEYCODE = {
     ENTER: 13,
     ESC: 27,
-    SPACE: 32,
+    SPACE: 32
   }
 
   // Get content element the button is referencing to
-  function getElemRef(elem) {
+  function getElemRef (elem) {
     // Get reference element or array
     if (elem.getAttribute('data-state-element')) {
       const dataStateElementValue = elem.getAttribute('data-state-element')
@@ -25,7 +25,7 @@ export function toggle() {
   }
 
   // Get content element scope
-  function getElemScope(
+  function getElemScope (
     elem,
     parentSelector,
     targetButtonSelector,
@@ -36,19 +36,19 @@ export function toggle() {
     // Grab all matching child elements of parent
     return {
       button: [...elemParent.querySelectorAll(targetButtonSelector)],
-      content: [...elemParent.querySelectorAll(targetContentSelector)],
+      content: [...elemParent.querySelectorAll(targetContentSelector)]
     }
   }
 
   // Get elemenet state
-  function getElemState(elem) {
+  function getElemState (elem) {
     // Grab data-state list and convert to array
     const dataState = elem.getAttribute('data-state')
     return dataState.split(', ')
   }
 
   // Set default state
-  function setDefaultState(elem, elemRef, elemState) {
+  function setDefaultState (elem, elemRef, elemState) {
     // Set default state for the 'button'
     state.off({ element: elem, type: 'button' }, elemState)
 
@@ -70,7 +70,7 @@ export function toggle() {
                 state.off(
                   {
                     element: elemRefItem,
-                    type: 'content',
+                    type: 'content'
                   },
                   elemState
                 )
@@ -145,7 +145,7 @@ export function toggle() {
   }
 
   // Change function
-  function processChange(elem, elemRef, elemState) {
+  function processChange (elem, elemRef, elemState) {
     let dataStateScope
     let dataStateScopeButton
     let dataStateScopeContent
@@ -216,7 +216,7 @@ export function toggle() {
   }
 
   // Prepare elements
-  function prepareElements(elem, elemRef, elemState) {
+  function prepareElements (elem, elemRef, elemState) {
     // Add tabindex if not tabbable
     if (tabbable(elem).length === 0) {
       elem.setAttribute('tabindex', '0')
@@ -224,7 +224,7 @@ export function toggle() {
 
     // Add listeners
     // Assign click event
-    elem.addEventListener('click', function clickEvent(e) {
+    elem.addEventListener('click', function clickEvent (e) {
       // TODO Prevet this happening when pressing SPACE on BUTTON element
       // Prevent default action of element
       e.preventDefault()
@@ -233,7 +233,7 @@ export function toggle() {
     })
 
     // Add keyboard event for enter key to mimic anchor functionality
-    elem.addEventListener('keypress', function keypressEvent(e) {
+    elem.addEventListener('keypress', function keypressEvent (e) {
       if (e.which === KEYCODE.SPACE || e.which === KEYCODE.ENTER) {
         // Prevent default action of element
         e.preventDefault()
@@ -243,7 +243,7 @@ export function toggle() {
     })
   }
 
-  function initialize(elems) {
+  function initialize (elems) {
     // Loop through our matches
     for (let a = 0; a < elems.length; a++) {
       // Get elem state
@@ -293,7 +293,7 @@ export function toggle() {
   // Define type of change our observer will watch out for
   observer.observe(document.body, {
     childList: true,
-    subtree: true,
+    subtree: true
   })
 
   const resizeHandler = debounce(() => {

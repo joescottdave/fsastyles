@@ -30,21 +30,21 @@ export default function navigationKeyboard (actionItems, settings) {
   const traversing = {
     // Functions for traversing between items and levels.
     prev: function (item) {
-      let currentItem = queryParents(item, settings.listItemSelector)
+      const currentItem = queryParents(item, settings.listItemSelector)
 
       if (currentItem && currentItem.previousElementSibling && currentItem.previousElementSibling.matches(settings.listItemSelector)) {
         return currentItem.previousElementSibling
       }
     },
     next: function (item) {
-      let currentItem = queryParents(item, settings.listItemSelector)
+      const currentItem = queryParents(item, settings.listItemSelector)
 
       if (currentItem && currentItem.nextElementSibling && currentItem.nextElementSibling.matches(settings.listItemSelector)) {
         return currentItem.nextElementSibling
       }
     },
     out: function (item) {
-      let parentItem = queryParents(item.parentNode, settings.listItemSelector)
+      const parentItem = queryParents(item.parentNode, settings.listItemSelector)
 
       // If item has parent menu item, query for its parent menu.
       if (parentItem) {
@@ -52,11 +52,11 @@ export default function navigationKeyboard (actionItems, settings) {
       }
     },
     in: function (item) {
-      let childList = item.querySelector(settings.menuSelector)
+      const childList = item.querySelector(settings.menuSelector)
 
       // If item has a child list, return its first item.
       if (childList) {
-        let firstItem = childList.querySelector(settings.listItemSelector)
+        const firstItem = childList.querySelector(settings.listItemSelector)
 
         if (firstItem) {
           return firstItem
@@ -64,7 +64,7 @@ export default function navigationKeyboard (actionItems, settings) {
       }
     },
     getLevel: function (item) {
-      let itemLevel = item.getAttribute('data-menu-level')
+      const itemLevel = item.getAttribute('data-menu-level')
 
       if (itemLevel) {
         return parseInt(itemLevel)
@@ -76,7 +76,7 @@ export default function navigationKeyboard (actionItems, settings) {
     // Functions for traversing between groups.
     group: {
       prev: function (item) {
-        let currentGroup = queryParents(item, settings.groupSelector)
+        const currentGroup = queryParents(item, settings.groupSelector)
         if (currentGroup) {
           return traversing.siblings.prev(currentGroup, settings.groupSelector)
         }
@@ -84,7 +84,7 @@ export default function navigationKeyboard (actionItems, settings) {
         return null
       },
       next: function (item) {
-        let currentGroup = queryParents(item, settings.groupSelector)
+        const currentGroup = queryParents(item, settings.groupSelector)
         if (currentGroup) {
           return traversing.siblings.next(currentGroup, settings.groupSelector)
         }
@@ -96,7 +96,7 @@ export default function navigationKeyboard (actionItems, settings) {
     // Functions for traversing between top level items.
     top: {
       topItem: function (item) {
-        let parentItem = queryParents(item.parentNode, settings.listItemSelector)
+        const parentItem = queryParents(item.parentNode, settings.listItemSelector)
 
         // If item has parent menu item, query for its parent menu.
         if (parentItem) {
@@ -143,7 +143,7 @@ export default function navigationKeyboard (actionItems, settings) {
     }
   }
 
-  var _active = false
+  let _active = false
   const isActive = (setActive) => {
     if (typeof setActive === 'undefined') {
       return _active
@@ -280,14 +280,14 @@ export default function navigationKeyboard (actionItems, settings) {
 
             listItem = queryParents(item, settings.listItemSelector)
             itemLevel = traversing.getLevel(listItem)
-            let innerItem = traversing.in(listItem)
+            const innerItem = traversing.in(listItem)
 
             // 1. Try and traverse into the list item's child list.
             if (innerItem) {
               // Open megamenu first.
               if (itemLevel == 1) {
                 var linkElement = listItem.querySelector(settings.menuItemActionSelector)
-                var openEvent = new CustomEvent('navigation:open')
+                const openEvent = new CustomEvent('navigation:open')
                 linkElement.dispatchEvent(openEvent)
               }
 

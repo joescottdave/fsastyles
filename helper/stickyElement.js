@@ -30,7 +30,7 @@ function stickyElement (containers, stickyElements) {
     }
 
     calcInview () {
-      var rect = this.element.getBoundingClientRect()
+      const rect = this.element.getBoundingClientRect()
       return (
         rect.top - window.innerHeight <= 0 &&
         rect.bottom >= 0
@@ -42,7 +42,7 @@ function stickyElement (containers, stickyElements) {
     }
 
     calcBottom () {
-      var elementHeight = this._relatedInstance.element.offsetHeight
+      const elementHeight = this._relatedInstance.element.offsetHeight
       return this.element.getBoundingClientRect().bottom <= elementHeight
     }
   }
@@ -58,11 +58,11 @@ function stickyElement (containers, stickyElements) {
   // Push all containerArray into an array
   for (let i = 0; i < containers.length; i++) {
     // Query all content sections inside area
-    let allSections = stickyElements
+    const allSections = stickyElements
 
     // Loop through every sections inside current content area
     for (let y = 0; y < allSections.length; y++) {
-      let stickyScrollableElement = allSections[y]
+      const stickyScrollableElement = allSections[y]
       stickyElementArray.push(new Section(stickyScrollableElement))
     }
 
@@ -70,7 +70,7 @@ function stickyElement (containers, stickyElements) {
   }
 
   // Set related instance for each instance of the container
-  for (var i = 0; i < containerArray.length; i++) {
+  for (let i = 0; i < containerArray.length; i++) {
     containerArray[i].relatedInstance = stickyElementArray[i]
   }
 

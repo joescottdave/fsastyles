@@ -19,9 +19,9 @@ import { peek } from './component/peek/peek'
 import { fhrs } from './component/fhrs/fhrs'
 import { toc } from './component/toc/toc'
 import { changeAriaRoleOnToggle, autoOpenFormError, scrollToMultiStepForm } from './component/form/form'
-import { autoOpenFirstSearchFilter } from './component/search/search'
+import { autoOpenFirstSearchFilter, hideSearchFiltersEmptyResults } from './component/search/search'
 import { toggleSidebarDocumentMenu } from './component/document-menu-side-bar/document-menu-side-bar'
-import { hideSearchFiltersEmptyResults } from './component/search/search'
+
 import { webFormError } from './component/webform-error/webform-error'
 
 // Require every image asset inside of img folder

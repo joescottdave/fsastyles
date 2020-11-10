@@ -51,16 +51,16 @@ const state = {
     }
 
     if (!newState) {
-      state.off({element: elem, type: 'button'}, elemState, recursiveInert)
-      state.off({element: elemRefItem, type: 'content'}, elemState, recursiveInert)
+      state.off({ element: elem, type: 'button' }, elemState, recursiveInert)
+      state.off({ element: elemRefItem, type: 'content' }, elemState, recursiveInert)
     } else {
-      state.on({element: elem, type: 'button'}, elemState, recursiveInert)
-      state.on({element: elemRefItem, type: 'content'}, elemState, recursiveInert)
+      state.on({ element: elem, type: 'button' }, elemState, recursiveInert)
+      state.on({ element: elemRefItem, type: 'content' }, elemState, recursiveInert)
     }
   },
 
   match: (elem, stateRefItem, elemState) => {
-    var newState = stateRefItem.classList.contains(elemState)
+    const newState = stateRefItem.classList.contains(elemState)
 
     if (!newState) {
       state.off({ element: elem, type: 'button' }, elemState)

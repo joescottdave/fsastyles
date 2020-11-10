@@ -1,14 +1,14 @@
 
 export function toggleSidebarDocumentMenu () {
-  let sidebarDocumentMenus = [...document.querySelectorAll('div.document-menu-side-menu')]
+  const sidebarDocumentMenus = [...document.querySelectorAll('div.document-menu-side-menu')]
 
-  let toggleCSSClass = (element, className) => {
+  const toggleCSSClass = (element, className) => {
     if (element.classList) {
       element.classList.toggle(className)
     } else {
       // For IE9
-      let classes = element.className.split(' ')
-      let i = classes.indexOf(className)
+      const classes = element.className.split(' ')
+      const i = classes.indexOf(className)
 
       if (i >= 0) { classes.splice(i, 1) } else { classes.push(className) }
       element.className = classes.join(' ')
@@ -16,8 +16,8 @@ export function toggleSidebarDocumentMenu () {
   }
 
   sidebarDocumentMenus.forEach((documentMenu) => {
-    let heading = documentMenu.querySelector('h2.sidebar-title')
-    let nav = documentMenu.querySelector('nav.document-menu')
+    const heading = documentMenu.querySelector('h2.sidebar-title')
+    const nav = documentMenu.querySelector('nav.document-menu')
 
     heading.onclick = () => {
       toggleCSSClass(heading, 'sidebar-title__open')

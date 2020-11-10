@@ -19,7 +19,7 @@ function subNavigation (element) {
 
   const closeAll = (array) => {
     array.forEach(function (link) {
-      let content = link.nextElementSibling
+      const content = link.nextElementSibling
       content.classList.remove('is-open')
       content.classList.add('is-closed')
       content.setAttribute('aria-hidden', true)
@@ -34,7 +34,7 @@ function subNavigation (element) {
   linkArray.forEach(function (link) {
     if (link.nextElementSibling !== null) {
       contentLinks = [...contentLinks, link]
-      let content = link.nextElementSibling
+      const content = link.nextElementSibling
       link.addEventListener('click', function (e) {
         e.preventDefault()
         closeAll(contentLinks)

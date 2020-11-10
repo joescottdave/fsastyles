@@ -2,7 +2,7 @@ import doScrolling from '../../helper/scrollToElement'
 
 export function toc () {
   // Set 'tabindex' attribute to all scroll targets so that currentHeading.focus() works properly
-  let body = document.querySelector('.field__body')
+  const body = document.querySelector('.field__body')
 
   // Check that body exists before continuing.
   if (!body) {
@@ -25,13 +25,13 @@ export function toc () {
 
   // Navigation items
   for (let i = 0; i < tocNavigationItems.length; i++) {
-    let thisTocNavigationItem = tocNavigationItems[i]
+    const thisTocNavigationItem = tocNavigationItems[i]
 
     thisTocNavigationItem.addEventListener('click', function (e) {
       e.preventDefault()
 
-      let id = this.children[0].href.substr(this.children[0].href.indexOf('#') + 1)
-      let currentHeading = document.getElementById(id)
+      const id = this.children[0].href.substr(this.children[0].href.indexOf('#') + 1)
+      const currentHeading = document.getElementById(id)
 
       // Scroll
       doScrolling(currentHeading, 1000, -20)

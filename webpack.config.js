@@ -5,10 +5,10 @@ const SvgStorePlugin = require('external-svg-sprite-loader')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
-var config = {
+const config = {
   // context: path.resolve(__dirname, 'src'),
   entry: {
-    app: './index.js',
+    app: './index.js'
   },
   module: {
     rules: [
@@ -19,10 +19,10 @@ var config = {
           {
             loader: 'babel-loader',
             options: {
-              presets: ['@babel/preset-env'],
-            },
-          },
-        ],
+              presets: ['@babel/preset-env']
+            }
+          }
+        ]
       },
       {
         test: /\.css$/,
@@ -31,14 +31,14 @@ var config = {
           MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
-            options: { importLoaders: 1, url: false },
+            options: { importLoaders: 1, url: false }
           },
-          'postcss-loader',
-        ],
+          'postcss-loader'
+        ]
       },
       {
         test: /\.(gif|png|jpe?g)$/i,
-        use: ['file-loader?name=[path][name].[ext]', 'image-webpack-loader'],
+        use: ['file-loader?name=[path][name].[ext]', 'image-webpack-loader']
       },
       {
         test: /\.svg$/,
@@ -47,33 +47,33 @@ var config = {
             loader: SvgStorePlugin.loader,
             options: {
               name: 'sprite.svg',
-              iconName: '[name]',
-            },
+              iconName: '[name]'
+            }
           },
-          'svgo-loader',
-        ],
+          'svgo-loader'
+        ]
       },
       {
         test: /\.html$/,
-        use: ['html-loader'],
+        use: ['html-loader']
       },
       {
         test: /\.md$/,
         use: [
           {
-            loader: 'html-loader',
+            loader: 'html-loader'
           },
           {
-            loader: 'markdown-loader',
-          },
-        ],
-      },
-    ],
+            loader: 'markdown-loader'
+          }
+        ]
+      }
+    ]
   },
   output: {
     filename: '[name].js',
-    path: path.resolve(__dirname, 'dist'),
-  },
+    path: path.resolve(__dirname, 'dist')
+  }
 }
 
 module.exports = (env, argv) => {
@@ -84,11 +84,11 @@ module.exports = (env, argv) => {
 
     // Extract CSS to its own file
     new MiniCssExtractPlugin({
-      filename: '[name].css',
+      filename: '[name].css'
     }),
 
     new OptimizeCssAssetsPlugin({
-      cssProcessorOptions: { discardComments: { removeAll: true } },
+      cssProcessorOptions: { discardComments: { removeAll: true } }
     }),
 
     // Create SVG sprite
@@ -98,9 +98,9 @@ module.exports = (env, argv) => {
         startY: 10,
         deltaX: 20,
         deltaY: 20,
-        iconHeight: 20,
-      },
-    }),
+        iconHeight: 20
+      }
+    })
   ]
 
   return config

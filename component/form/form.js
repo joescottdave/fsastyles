@@ -41,7 +41,7 @@ export function scrollToMultiStepForm () {
   // Focus the first form input
   const firstInput = webform.querySelector('input, textarea, select')
   if (firstInput) {
-    firstInput.focus({'preventScroll': true})
+    firstInput.focus({ preventScroll: true })
 
     // Scroll to the form element
     window.scrollTo({
