@@ -41,6 +41,8 @@
     "markdown-loader": "^6.0.0",
     "mutationobserver-shim": "^0.3.2",
     "postcss": "^8.1.6",
+    "postcss-custom-media": "^7.0.8",
+    "postcss-custom-selectors": "^5.1.2",
     "postcss-discard-comments": "^4.0.2",
     "postcss-import": "^13.0.0",
     "postcss-loader": "^4.0.4",
