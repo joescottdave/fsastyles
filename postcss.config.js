@@ -2,18 +2,16 @@ module.exports = {
   plugins: {
     'postcss-import': {},
     'postcss-mixins': {},
-    'postcss-cssnext': {
-      features: {
-        customProperties: {
-          preserve: false,
-          warnings: false
-        },
-        rem: false,
-        nesting: false
-      }
-    },
+    'postcss-custom-media': {},
+    'postcss-custom-selectors': {},
     'postcss-nested': {},
     'postcss-normalize': {},
-    'postcss-discard-comments': {}
-  }
+    'postcss-discard-comments': {},
+    'postcss-preset-env': {
+      autoprefixer: {
+        flexbox: 'no-2009',
+      },
+      stage: 3,
+    },
+  },
 }
