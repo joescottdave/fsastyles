@@ -1,6 +1,6 @@
 {
   "name": "fsastyles",
-  "version": "1.0.0+epimorphics",
+  "version": "0.1.0+epimorphics",
   "description": "npm package for using FSA styles",
   "author": "",
   "main": " index.js",
@@ -29,15 +29,9 @@
     "@babel/core": "^7.12.3",
     "@babel/polyfill": "^7.12.1",
     "@babel/preset-env": "^7.12.1",
-    "custom-event-polyfill": "^1.0.7",
-    "mutationobserver-shim": "^0.3.2",
-    "svg4everybody": "^2.1.8",
-    "tabbable": "^5.1.3",
-    "wicg-inert": "^3.1.0"
-  },
-  "devDependencies": {
     "babel-loader": "^8.2.0",
     "css-loader": "^5.0.1",
+    "custom-event-polyfill": "^1.0.7",
     "eslint": "^7.13.0",
     "eslint-config-standard": "^16.0.1",
     "eslint-plugin-import": "^2.22.1",
@@ -50,6 +44,7 @@
     "image-webpack-loader": "^7.0.1",
     "markdown-loader": "^6.0.0",
     "mini-css-extract-plugin": "^1.3.0",
+    "mutationobserver-shim": "^0.3.2",
     "optimize-css-assets-webpack-plugin": "^5.0.4",
     "postcss": "^8.1.6",
     "postcss-custom-media": "^7.0.8",
@@ -65,9 +60,12 @@
     "style-loader": "^2.0.0",
     "stylelint": "^13.7.2",
     "stylelint-config-standard": "^20.0.0",
+    "svg4everybody": "^2.1.8",
     "svgo": "^1.0.4",
     "svgo-loader": "^2.1.0",
+    "tabbable": "^5.1.3",
     "webpack": "^5.4.0",
-    "webpack-cli": "^4.2.0"
+    "webpack-cli": "^4.2.0",
+    "wicg-inert": "^3.1.0"
   }
 }
